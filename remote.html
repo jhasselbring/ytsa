@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Main Window</title>
+</head>
+
+<body>
+  <button id="openSubs">Open Subscriptions</button>
+  <button id="alert">Alert</button>
+  <script>
+    const {
+      ipcRenderer
+    } = require('electron');
+    document.getElementById('openSubs').addEventListener('click', () => {
+      ipcRenderer.send('openSubscriptionsFromMain');
+    });
+
+    document.getElementById('alert').addEventListener('click', () => {
+      ipcRenderer.send('getLatestVideos');
+    });
+  </script>
+</body>
+
+</html>
